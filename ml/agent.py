@@ -9,8 +9,8 @@ import torch.nn as nn
 from stable_baselines3 import PPO, SAC
 import matplotlib.pyplot as plt
 
-BINANCE_OB_FILE="ob-trading/data/binance_ob_btcusdt*.csv"
-#BINANCE_OB_FILE="/home/string-1/Documents/python bn/binance_ob_btcusdt.csv"
+BINANCE_OB_FILE="binance_ob_btcusdt*.csv"
+#BINANCE_OB_FILE="binance_ob_btcusdt.csv"
 LVLS_IN_OBS=10
 
 total_steps = 1e7
