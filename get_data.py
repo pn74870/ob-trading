@@ -20,7 +20,7 @@ ax.set_ylabel("Quantity")
 
 plt.show(block=False)
 LVLS_SAVE=50
-FILENAME=f"binance_ob_{symbol}.csv"
+FILENAME=f"binance_ob_{symbol}_{datetime.date.today()}.csv"
 def on_message_ob(message):
   
     message=json.loads(message)

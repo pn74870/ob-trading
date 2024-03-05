@@ -9,13 +9,13 @@ import torch.nn as nn
 from stable_baselines3 import PPO, SAC
 import matplotlib.pyplot as plt
 
-BINANCE_OB_FILE="/Users/justinas/Documents/python/trading/binance_ob_btcusdt.csv"
-
+BINANCE_OB_FILE="ob-trading/data/binance_ob_btcusdt*.csv"
+#BINANCE_OB_FILE="/home/string-1/Documents/python bn/binance_ob_btcusdt.csv"
 LVLS_IN_OBS=10
 
-total_steps = 1e6
+total_steps = 1e7
 
-# NEED TO REWRITE WITH LEARNING RATE SCHEDULER!!!!!
+
 learning_rate = 1e-3
 
 save_path = "weights/ppo"
@@ -69,10 +69,18 @@ while(not done):
     obs, reward, done,_,info=env.step(action)
     
     price=info["price"]
+    print(info)
+    
+    if action==1:
+        action=.01
+        
+    if action==2:
+        action=-.01   
+
     if(action>0):
         buys.append(price)
         tbuys.append(t)
-    else:
+    elif(action<0):
         sells.append(price)
         tsell.append(t)   
 
